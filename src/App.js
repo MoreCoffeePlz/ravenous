@@ -21,7 +21,7 @@ const businesses = [
 ];
 class App extends React.Component {
   searchYelp(term, location, sortBy) {
-    return console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}.`)
+    return '{Searching Yelp with ${term}, ${location}, ${sortBy}.}'
   }
   render() {
     return (

@@ -44,7 +44,7 @@ class SearchBar extends React.Component {
    this.handleSearch.bind(this);
  }
  handleSearch(event) {
-   
+
  }
 
  renderSortByOptions() {
@@ -66,8 +66,8 @@ class SearchBar extends React.Component {
           </ul>
         </div>
         <div className="SearchBar-fields">
-          <input placeHolder="Search Locations" onChange={this.handleTermChange} onChange={this.handleLocationChange}/>
-          <input placeholder="Where?" onChange={this.handleTermChange} onChange={this.handleLocationChange}/>
+          <input placeHolder="Search Locations" onChange={this.handleTermChange}/>
+          <input placeholder="Where?" onChange={this.handleLocationChange}/>
         </div>
         <div className="SearchBar-submit">
           <a>Lets Go</a>
