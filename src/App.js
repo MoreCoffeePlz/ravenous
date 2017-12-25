@@ -27,14 +27,17 @@ const businesses = [
 ];
 */
 class App extends React.Component {
-  constructor(this.state = {
-    businesses: []
-  };
-this.searchYelp.bind(this));
+  constructor(props) {
+      super(props);
+      this.state = {
+        businesses: []
+      };
+      this.searchYelp = this.searchYelp.bind(this);
+};
   searchYelp(term, location, sortBy) {
     Yelp.search(term, location, sortBy).then(businesses => {
-      setState = {
-        businesses: businesses
+      this.setState = {
+        businesses: this.businesses
       }
     })
   }
