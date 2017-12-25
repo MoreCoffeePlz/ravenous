@@ -3,7 +3,7 @@ import './App.css';
 
 import BusinessList from './components/BusinessList/BusinessList';
 import SearchBar from './components/SearchBar/SearchBar';
-import Yelp from './src/util';
+import Yelp from './util';
 
 /*const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className="App">
     <h1>Ravenous</h1>
     <SearchBar searchYelp={this.searchYelp} />
-    <BusinessList businesses={businesses} />
+    <BusinessList businesses={this.businesses} />
   </div>
     );
   }
