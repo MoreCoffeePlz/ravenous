@@ -1,30 +1,30 @@
-const apiKey = '0jUnTEdbmZMexqY6lUl1VAAdCoq6FMtlFkx-S-QoOfiABNRNYZOPpmVxxOlUhKGTQgXN1j-iUC35FaSCOn0u62NwrzcaaNGNOiQweNqLDHPNOIeT2zPIsaWhxDlBWnYx'
+const apiKey = '0jUnTEdbmZMexqY6lUl1VAAdCoq6FMtlFkx-S-QoOfiABNRNYZOPpmVxxOlUhKGTQgXN1j-iUC35FaSCOn0u62NwrzcaaNGNOiQweNqLDHPNOIeT2zPIsaWhxDlBWnYx';
+
 const Yelp = {
   search(term, location, sortBy) {
     return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, {
       headers: {
-     Authorization: `Bearer ${apiKey}` 
-  }
-}).then(response => {
-  response.json();
-}).then(jsonResponse => {
-  if (jsonResponse.businesses) {
-    return jsonResponse.businesses.map(business => (
-      return {
+     Authorization: `Bearer ${apiKey}`
+    }
+  }).then(response => {
+    return response.json();
+  }).then(jsonResponse => {
+    if (jsonResponse.businesses) {
+    return jsonResponse.businesses.map(business => ({
         id: business.id,
         imageSRC: business.image_url,
         name: business.name,
-        address: business.address,
-        city: business.city,
-        state: business.state,
-        zipCode: business.zipCode
-        category: business.category,
-        rating: business.rating
-        reviewCount: business.reviewCount
+        address: business.location.address1,
+        city: business.location.city,
+        state: business.location.state,
+        zipCode: business.location.zip_code,
+        category: business.categories[0].title,
+        rating: business.rating,
+        reviewCount: business.review_count
+        }));
       }
-    ));
+    });
   }
-});
-  }
-}
-export Yelp
+};
+
+export default Yelp;
